@@ -1,0 +1,37 @@
+.Log-sign-form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  padding-right: 20px;
+  
+}
+
+.Log-sign-form input,
+.Log-sign-form textarea {
+  width: 95%;
+  padding: 10px;
+  margin-inline-end: 2rem;
+  
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.Log-sign-form button {
+  background-color: #2a9d8f;
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.Log-sign-form button:hover {
+  background-color: #21867a;
+}

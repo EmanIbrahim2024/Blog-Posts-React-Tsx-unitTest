@@ -2,7 +2,10 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { stateType, AppDispatch } from "Components/Types";
-import {editPost,getCertainPost} from "../../Components/PostRequestsFirebase";
+import {
+  editPost,
+  getCertainPost,
+} from "../../Components/FirebaseRequestsAndtest/PostRequestsFirebase";
 import { PostForm } from "../../Components";
 
 function EditPost() {
@@ -38,17 +41,17 @@ function EditPost() {
     }
 
     try {
-      if (id) {
-        await dispatch(
+      if (id && SelectedPost) {
+        dispatch(
           editPost({
             id,
             updatedPost: {
               title,
               content,
-              timestamp: new Date().toLocaleString(),
+              timestamp: SelectedPost.timestamp,
             },
           })
-        ).unwrap();
+        );
         navigate("/posts");
       }
     } catch (err) {

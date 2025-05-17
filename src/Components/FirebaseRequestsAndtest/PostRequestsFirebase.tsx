@@ -1,7 +1,7 @@
 import { get, ref, push, remove, update } from "firebase/database";
-import { realTimeDataBase } from "../firebase";
+import { realTimeDataBase } from "../../firebase";
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import { Post } from "./Types";
+import { Post } from "../Types";
 
 export const addPost = createAsyncThunk("posts/addPost", async (post:Post) => {
     const newRef = push(ref(realTimeDataBase, "posts"));
@@ -9,11 +9,17 @@ export const addPost = createAsyncThunk("posts/addPost", async (post:Post) => {
     return { id: newRef.key, ...post };
   });
   
-export const getPosts = createAsyncThunk<Post[]>("posts/getPosts", async () => {
-  const snapShot = await get(ref(realTimeDataBase, "posts"));
+export const getPosts = createAsyncThunk<Post[]>("posts/getPosts", async (_,thunkAPI) => {
+  try{
+     const snapShot = await get(ref(realTimeDataBase, "posts"));
   const posts = snapShot.val();
   if (!posts) return [];
   return Object.entries(posts).map(([id, val]) => ({ id, ...(val as Post) }));
+
+  } catch(error){
+    return thunkAPI.rejectWithValue("Error in downloading posts")
+  }
+ 
 });
 
   

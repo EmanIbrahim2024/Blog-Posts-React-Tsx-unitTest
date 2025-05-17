@@ -1,6 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { addPost } from "../../Components/PostRequestsFirebase";
+import { addPost } from "../../Components/FirebaseRequestsAndtest/PostRequestsFirebase";
 import { useNavigate, useParams } from "react-router-dom";
 import { Post, AppDispatch } from "Components/Types";
 import { PostForm } from "../../Components";

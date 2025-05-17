@@ -1,6 +1,6 @@
 import  { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { deletePost, getPosts } from "../../Components/PostRequestsFirebase";
+import { deletePost, getPosts } from "../../Components/FirebaseRequestsAndtest/PostRequestsFirebase";
 import { useNavigate } from "react-router-dom";
 import { MapingPosts } from "../../Components";
 import { Post, stateType, AppDispatch } from "Components/Types";

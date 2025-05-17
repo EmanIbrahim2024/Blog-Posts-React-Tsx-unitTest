@@ -1,5 +1,5 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { addPost,editPost,deletePost,getCertainPost,getPosts } from "../Components/PostRequestsFirebase";
+import { createSlice } from "@reduxjs/toolkit";
+import { addPost,editPost,deletePost,getCertainPost,getPosts } from "../Components/FirebaseRequestsAndtest/PostRequestsFirebase";
 import { PostState } from "Components/Types";
 
 

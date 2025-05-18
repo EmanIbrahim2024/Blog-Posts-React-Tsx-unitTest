@@ -1,3 +1,4 @@
+//the collection of types which needed in all project
 export type Post = {
   id?: string;
   title: string;

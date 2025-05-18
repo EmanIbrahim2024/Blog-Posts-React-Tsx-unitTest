@@ -2,8 +2,9 @@ import "./dashboard.css";
 import UserPosts from "../Posts/UserPosts";
 
 export default function Dashboard() {
-   const userInLocalSt=localStorage.getItem('user');
-  const user = userInLocalSt?JSON.parse(userInLocalSt):null
+  //get the user info from localstorage and display it
+  const userInLocalSt = localStorage.getItem("user");
+  const user = userInLocalSt ? JSON.parse(userInLocalSt) : null;
 
   return (
     <>

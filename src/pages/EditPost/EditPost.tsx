@@ -35,6 +35,7 @@ function EditPost() {
     }
   }, [SelectedPost]);
 
+  //ensure title and content is not empty before dispatch edit post
   const handleSubmit = async () => {
     if (!title.trim() || !content.trim()) {
       setErrorMessage("Title and content cannot be empty!");

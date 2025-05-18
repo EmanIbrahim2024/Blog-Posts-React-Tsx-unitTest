@@ -33,7 +33,7 @@ export default function MapingPosts({userPosts,handleEdit,handleDelete}: MapingP
   const handlePageChange = (pageNumber: number) => {
     setCurrentPage(pageNumber);
   };
-  ///////////////////////////////////////////////////
+  //////////////////////return Mapping posts/////////////////////////////
 
   return (
     <>

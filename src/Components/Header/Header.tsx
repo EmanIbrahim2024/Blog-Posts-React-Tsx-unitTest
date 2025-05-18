@@ -6,13 +6,16 @@ import logoImg from "../../assets/imges/logo.png";
 import { stateType } from "Components/Types";
 
 function Header() {
+  //get the user which store in localstorage
   const user = useSelector((state: stateType) => state.auth.user);
   const dispatch = useDispatch();
 
+  //Clicking logout button get the fn to remove the user from local storage
   const handleLogout = () => {
     dispatch(logout());
   };
 
+  //the header apperance is change according to there is a user loged in or not
   return (
     <div>
       <header>
@@ -29,7 +32,6 @@ function Header() {
                 <p> All Posts </p>
               </NavLink>
               <NavLink to="/new-post">
-                {" "}
                 <p> New Post </p>
               </NavLink>
             </>
@@ -39,8 +41,7 @@ function Header() {
                 <button> Login </button>
               </NavLink>
               <NavLink to="/signup">
-                {" "}
-                <button> Signup </button>{" "}
+                <button> Signup </button>
               </NavLink>
             </>
           )}

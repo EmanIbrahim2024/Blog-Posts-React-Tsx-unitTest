@@ -20,7 +20,7 @@ function Header() {
     <div>
       <header>
         <div>
-          <img src={logoImg} />
+          <img src={logoImg} alt="logo" />
         </div>
         <nav>
           {user ? (
@@ -28,9 +28,11 @@ function Header() {
               <NavLink to="/dashboard">
                 <p> Dashboard </p>
               </NavLink>
+
               <NavLink to="/posts">
                 <p> All Posts </p>
               </NavLink>
+
               <NavLink to="/new-post">
                 <p> New Post </p>
               </NavLink>
@@ -40,6 +42,7 @@ function Header() {
               <NavLink to="/login">
                 <button> Login </button>
               </NavLink>
+
               <NavLink to="/signup">
                 <button> Signup </button>
               </NavLink>
@@ -47,7 +50,7 @@ function Header() {
           )}
         </nav>
 
-        <>{user && <button onClick={handleLogout}>Logout</button>}</>
+        {user && <button onClick={handleLogout}>Logout</button>}
       </header>
     </div>
   );

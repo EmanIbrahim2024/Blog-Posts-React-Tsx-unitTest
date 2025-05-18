@@ -114,20 +114,32 @@
 <a name='L49'></a><a href='#L49'>49</a>
 <a name='L50'></a><a href='#L50'>50</a>
 <a name='L51'></a><a href='#L51'>51</a>
-<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
@@ -139,20 +151,24 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -170,12 +186,16 @@ import { realTimeDataBase } from "../../firebase";
 import {createAsyncThunk} from "@reduxjs/toolkit";
 import { Post } from "../Types";
 &nbsp;
+&nbsp;
+//create thunk with firebase its name posts/addPost to add new posts to its real time database
 export const addPost = createAsyncThunk("posts/addPost", async (post:Post) =&gt; {
     const newRef = push(ref(realTimeDataBase, "posts"));
     await update(newRef, post);
     return { id: newRef.key!, ...post };
   });
   
+//create thunk with firebase its name posts/getPosts to get posts  from its real time database
+&nbsp;
 export const getPosts = createAsyncThunk&lt;Post[]&gt;("posts/getPosts", async (_,thunkAPI) =&gt; {
   try{
      const snapShot = await get(ref(realTimeDataBase, "posts"));
@@ -189,12 +209,15 @@ export const getPosts = createAsyncThunk&lt;Post[]&gt;("posts/getPosts", async (
  
 });
 &nbsp;
-  
+//create thunk with firebase its name posts/deletePost to delete post which send its id 
   export const deletePost = createAsyncThunk("posts/deletePost", async (id:string) =&gt; {
     await remove(ref(realTimeDataBase, `posts/${id}`));
     return id;
   });
   
+&nbsp;
+//create thunk with firebase its name "posts/editPost" to edit post which send its id 
+&nbsp;
   export const editPost = createAsyncThunk(
     "posts/editPost",
     async ({ id, updatedPost }:{id:string,updatedPost:Post}) =&gt; {
@@ -202,7 +225,8 @@ export const getPosts = createAsyncThunk&lt;Post[]&gt;("posts/getPosts", async (
       return { id, ...updatedPost };
     }
   );
-  
+&nbsp;
+//create thunk with firebase its name "posts/getCertainPost" to get post which send its id 
   export const getCertainPost=createAsyncThunk("posts/getCertainPost",
       async (id:string) =&gt; {
           const snapShot= await get(ref(realTimeDataBase,`posts/${id}`));
@@ -223,7 +247,7 @@ export const getPosts = createAsyncThunk&lt;Post[]&gt;("posts/getPosts", async (
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-05-18T10:07:10.803Z
+                at 2025-05-18T17:18:27.124Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

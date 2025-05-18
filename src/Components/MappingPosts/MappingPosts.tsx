@@ -9,6 +9,10 @@ export default function MapingPosts({userPosts,handleEdit,handleDelete}: MapingP
   const userInLocalSt = localStorage.getItem("user");
   const user = userInLocalSt ? JSON.parse(userInLocalSt) : null;
 
+  function isValidDate(d:Date){
+    return d instanceof Date&& !isNaN(d.getTime());
+  }
+
   //////////// sorting posts///////////////
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -59,9 +63,9 @@ export default function MapingPosts({userPosts,handleEdit,handleDelete}: MapingP
                 </p>
                 <p className="date">
                   {" "}
-                  {formatDistanceToNow(new Date(post.timestamp), {
+                  {isValidDate(new Date(post.timestamp))?formatDistanceToNow(new Date(post.timestamp), {
                     addSuffix: true,
-                  })}
+                  }):"Date is not available"}
                 </p>
               </div>
             </div>

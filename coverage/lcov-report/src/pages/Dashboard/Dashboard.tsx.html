@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/redux/AuthSliceAndtest/authSlice.tsx</title>
+    <title>Code coverage report for src/pages/Dashboard/Dashboard.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/redux/AuthSliceAndtest</a> authSlice.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/pages/Dashboard</a> Dashboard.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>10/10</span>
+                <span class='fraction'>6/6</span>
             </div>
         
             
@@ -87,55 +87,55 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">4x</span>
+<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">4x</span></td><td class="text"><pre class="prettyprint lang-js">import { createSlice } from '@reduxjs/toolkit';
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import "./dashboard.css";
+import UserPosts from "../Posts/UserPosts";
 &nbsp;
-const userInLocalSt=localStorage.getItem('user');
-const initialState = {
-  user: userInLocalSt? <span class="branch-0 cbranch-no" title="branch not covered" >JSON.parse(userInLocalSt):</span>null
-};
+export default function Dashboard() {
+  //get the user info from localstorage and display it
+  const userInLocalSt = localStorage.getItem("user");
+  const user = userInLocalSt ? JSON.parse(userInLocalSt) : <span class="branch-1 cbranch-no" title="branch not covered" >null;</span>
 &nbsp;
-const authSlice = createSlice({
-  name: 'auth',
-  initialState ,
-  reducers: {
-    loginSuccess: (state, action) =&gt; {
-      state.user = action.payload;
-      localStorage.setItem("user", JSON.stringify(action.payload));
+  return (
+    &lt;&gt;
+      &lt;div className="userInfo"&gt;
+        &lt;h2 className="welcomed"&gt;
+          Welcome, &lt;span className="Name"&gt; {user.fullName} &lt;/span&gt;{" "}
+        &lt;/h2&gt;
 &nbsp;
-    },
-    logout: (state) =&gt; {
-      state.user = null;
-      localStorage.removeItem('user');
-    },
-  },
-});
-&nbsp;
-export const { loginSuccess, logout } = authSlice.actions;
-export default authSlice.reducer;</pre></td></tr></table></pre>
+        &lt;div&gt;
+          &lt;p className="userMail"&gt;Email: {user.email}&lt;/p&gt;
+          &lt;p className="userPass"&gt;Phone: {user.phone}&lt;/p&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;UserPosts /&gt;
+    &lt;/&gt;
+  );
+}
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

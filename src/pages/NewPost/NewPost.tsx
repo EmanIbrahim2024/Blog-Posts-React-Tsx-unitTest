@@ -22,16 +22,16 @@ export default function NewPost() {
       setErrorMessage("Please fill in both title and content.");
       return;
     }
+      const newPost: Post = {
+        title,
+        content,
+        timestamp: new Date().toLocaleString(),
+        Auther: user.fullName,
+      };
 
-    const newPost: Post = {
-      title,
-      content,
-      timestamp: new Date().toLocaleString(),
-      Auther: user.fullName,
-    };
-
-    dispatch(addPost(newPost));
-    navigate("/posts");
+      dispatch(addPost(newPost!));
+      navigate("/posts");
+    
   };
 
   return (

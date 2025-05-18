@@ -1,4 +1,4 @@
-import { get, getDatabase, push, ref, remove, update } from "firebase/database";
+import { get, push, ref, remove, update } from "firebase/database";
 import {
   addPost,
   getPosts,

@@ -2,7 +2,7 @@ import { FormEvent, useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, realTimeDataBase } from "../../firebase";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../redux/authSlice";
+import { loginSuccess } from "../../redux/AuthSliceAndtest/authSlice";
 import { useNavigate } from "react-router-dom";
 import { ref, set } from "firebase/database";
 import { ValidationSignup } from "../../Components/index";
@@ -47,8 +47,9 @@ const Signup = () => {
     <div>
       <h2 className="pagetitle">Sign Up</h2>
       <form onSubmit={handleSignup} className="Log-sign-form">
-        <label>Full Name </label>
+        <label htmlFor="name">Full Name </label>
         <input
+          id="name"
           type="text"
           placeholder="Name"
           value={fullName}
@@ -56,8 +57,9 @@ const Signup = () => {
           required
         />
         <br />
-        <label>Phone Number </label>
+        <label htmlFor="phone">Phone Number </label>
         <input
+          id="phone"
           type="text"
           placeholder="Phone Number"
           value={phone}
@@ -65,8 +67,9 @@ const Signup = () => {
           required
         />
         <br />
-        <label>Email</label>
+        <label htmlFor="email">Email</label>
         <input
+          id="email"
           type="email"
           placeholder="Email"
           value={email}
@@ -74,8 +77,9 @@ const Signup = () => {
           required
         />
         <br />
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
+          id="password"
           type="password"
           placeholder="Password"
           value={password}

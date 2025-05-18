@@ -6,7 +6,7 @@ import { Post } from "../Types";
 export const addPost = createAsyncThunk("posts/addPost", async (post:Post) => {
     const newRef = push(ref(realTimeDataBase, "posts"));
     await update(newRef, post);
-    return { id: newRef.key, ...post };
+    return { id: newRef.key!, ...post };
   });
   
 export const getPosts = createAsyncThunk<Post[]>("posts/getPosts", async (_,thunkAPI) => {

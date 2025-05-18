@@ -1,6 +1,6 @@
 import { FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
-import { loginSuccess } from "../../redux/authSlice";
+import { loginSuccess } from "../../redux/AuthSliceAndtest/authSlice";
 import { useNavigate } from "react-router-dom";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";

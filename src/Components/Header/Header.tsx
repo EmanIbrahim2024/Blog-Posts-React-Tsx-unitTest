@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { logout } from "../../redux/authSlice";
+import { logout } from "../../redux/AuthSliceAndtest/authSlice";
 import "./Header.css";
 import logoImg from "../../assets/imges/logo.png";
 import { stateType } from "Components/Types";

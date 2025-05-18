@@ -1,5 +1,5 @@
 import "./PostForm.css";
-import {PostFormProp} from '../Types';
+import { PostFormProp } from "../Types";
 
 export default function PostForm({
   title,
@@ -8,12 +8,13 @@ export default function PostForm({
   content,
   setContent,
   SelectedPost,
-}:PostFormProp) {
+}: PostFormProp) {
   return (
-    <form onSubmit={handleSubmit} className="post-form">
+    <form onSubmit={handleSubmit} className="post-form" data-testid="post-form">
       <div>
-        <label>Title</label>
+        <label htmlFor="title">Title</label>
         <input
+          id="title"
           type="text"
           placeholder="Post Title"
           value={title}
@@ -22,8 +23,9 @@ export default function PostForm({
           required
         />
         <br />
-        <label>Content </label>
+        <label htmlFor="content">Content </label>
         <textarea
+          id="content"
           placeholder="Post Content"
           value={content}
           onChange={(e) => setContent(e.target.value)}

@@ -23,7 +23,8 @@ function EditPost() {
 
   // Fetch post once using Redux
   useEffect(() => {
-    dispatch(getCertainPost(id!));
+    if(id)
+    dispatch(getCertainPost(id));
   }, [dispatch, id]);
 
   // Populate form when post is loaded

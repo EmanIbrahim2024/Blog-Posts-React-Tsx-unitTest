@@ -53,7 +53,7 @@ export default function MapingPosts({userPosts,handleEdit,handleDelete}: MapingP
             <div className="bottompost">
               <div className="button-Container">
                 {post.id && (
-                  <button onClick={() => handleDelete(post.id!)}>Delete</button>
+                  <button data-testid={`deletebtn-${post.id}`} onClick={() => handleDelete(post.id!)}>Delete</button>
                 )}
                 <button onClick={() => handleEdit(post)}>Edit</button>
               </div>

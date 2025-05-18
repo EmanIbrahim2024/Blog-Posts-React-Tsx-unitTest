@@ -32,7 +32,7 @@ const Signup = () => {
       );
       const uid = userCredential.user.uid;
 
-      const userData = { uid, email, fullName, phone, createdAt: new Date() };
+      const userData = { uid, email, fullName, phone };
 
       await set(ref(realTimeDataBase, `users/${uid}`), userData);
 

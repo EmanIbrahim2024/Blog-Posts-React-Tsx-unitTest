@@ -64,6 +64,7 @@ function EditPost() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
 
+  
   return (
     <div className="post-details-container">
       <h2 className="pagetitle">Edit Post</h2>

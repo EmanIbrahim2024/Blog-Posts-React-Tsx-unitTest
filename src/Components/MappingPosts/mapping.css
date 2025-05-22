@@ -34,7 +34,7 @@ ul .user-posts-cont {
 
 .post-title {
   font-size: 1.5rem;
-  color: #4a90e2;
+  color: #1b3e65;
 }
 
 .post-content {
@@ -55,7 +55,7 @@ ul .user-posts-cont {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  color: #888686;
+  color: #3d3a3a;
 
   font-size: 1 rem;
   background-color: rgb(241, 253, 251);

@@ -24,10 +24,9 @@ header nav a {
   text-decoration: none;
 }
 
-header nav a:hover ,
-header nav a.active {
-  color: #ffffff;
-
+header nav .header-list a:hover ,
+header nav .header-list a.active {
+  color: #114759;
   text-decoration: none;
   border-radius: 5px;
 }
@@ -42,7 +41,7 @@ header .nav-button {
   transition: 0.3s;
   margin-left: 1rem;
 }
-nav a.active .nav-button {
+nav .nav-button.active  {
   background-color: #d62828;
   border-bottom: 1px solid #d62828;
 }

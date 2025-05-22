@@ -66,8 +66,8 @@ function EditPost() {
 
   
   return (
-    <div className="post-details-container">
-      <h2 className="pagetitle">Edit Post</h2>
+    <main className="post-details-container">
+      <h1 className="pagetitle">Edit Post</h1>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <PostForm
         title={title}
@@ -77,7 +77,7 @@ function EditPost() {
         handleSubmit={handleSubmit}
         SelectedPost={SelectedPost}
       />
-    </div>
+    </main>
   );
 }
 

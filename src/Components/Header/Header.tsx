@@ -20,37 +20,45 @@ function Header() {
     <div>
       <header>
         <div>
-          <img src={logoImg} alt="logo" />
+          <img src={logoImg} alt="Join us logo" />
         </div>
-        <nav>
+        <nav role="navigation">
           {user ? (
             <>
-              <NavLink to="/dashboard">
-                <p> Dashboard </p>
-              </NavLink>
-
-              <NavLink to="/posts">
-                <p> All Posts </p>
-              </NavLink>
-
-              <NavLink to="/new-post">
-                <p> New Post </p>
-              </NavLink>
+              <ul className="header-list">
+                <li>
+                  <NavLink to="/dashboard">
+                     Dashboard 
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/posts">
+                     All Posts 
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink to="/new-post">
+                     New Post 
+                  </NavLink>
+                </li>
+              </ul>
             </>
           ) : (
             <>
-              <NavLink to="/login">
-                <button> Login </button>
+              <NavLink to="/login" className="nav-button">
+                Login
               </NavLink>
 
-              <NavLink to="/signup">
-                <button> Signup </button>
+              <NavLink to="/signup" className="nav-button">
+                SignUp
               </NavLink>
+
+             
             </>
           )}
         </nav>
 
-        {user && <button onClick={handleLogout}>Logout</button>}
+        {user && <button onClick={handleLogout} className="nav-button">Logout</button>}
       </header>
     </div>
   );

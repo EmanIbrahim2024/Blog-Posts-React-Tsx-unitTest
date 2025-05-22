@@ -36,7 +36,7 @@ export default function NewPost() {
 
   return (
     <div className="newpost-container">
-      <h2 className="pagetitle">Add New Post</h2>
+      <h1 className="pagetitle">Add New Post</h1>
       {errorMessage && <p className="error-message">{errorMessage}</p>}
       <PostForm
         title={title}

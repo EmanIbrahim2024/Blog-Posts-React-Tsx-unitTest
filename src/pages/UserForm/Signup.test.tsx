@@ -154,16 +154,4 @@ describe("Signup Component", () => {
   });
 });
 
-//   test("shows alert if validation fails", async () => {
-//     render(
-//       <Provider store={store}>
-//         <BrowserRouter>
-//           <Signup />
-//         </BrowserRouter>
-//       </Provider>
-//     );
 
-//     // submit without get data in fields
-//     fireEvent.click(screen.getByRole("button", { name: /Sign Up/i }));
-
-//   });

@@ -9,10 +9,12 @@ const Pagination = ({
   return (
     <div className="pagination">
       <button
+        title="previous posts"
+        aria-label="previous page"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        Pre
+        Previous
       </button>
 
       {Array.from({ length: totalPages }, (_, i) => (
@@ -20,16 +22,19 @@ const Pagination = ({
           key={i + 1}
           onClick={() => handlePageChange(i + 1)}
           className={currentPage === i + 1 ? "active" : ""}
+          aria-current={currentPage === i + 1 ? "page" : undefined}
         >
           {i + 1}
         </button>
       ))}
 
       <button
+        title="show next posts"
+        aria-label="Next page"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        Nex
+        Next
       </button>
     </div>
   );

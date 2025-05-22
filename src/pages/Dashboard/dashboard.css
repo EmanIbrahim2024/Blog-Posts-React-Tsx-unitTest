@@ -7,6 +7,8 @@
   width: 96.7%;
   margin: auto;
   background: linear-gradient(90deg, #87bfff, #50e3c2);
+  display: flex;
+  flex-direction: column;
 }
 
 .welcomed {

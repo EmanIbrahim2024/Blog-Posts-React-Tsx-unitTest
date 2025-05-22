@@ -10,7 +10,12 @@ export default function PostForm({
   SelectedPost,
 }: PostFormProp) {
   return (
-    <form onSubmit={handleSubmit} className="post-form" data-testid="post-form">
+    <form
+      onSubmit={handleSubmit}
+      className="post-form"
+      data-testid="post-form"
+      role="form"
+    >
       <div>
         <label htmlFor="title">Title</label>
         <input
@@ -34,7 +39,11 @@ export default function PostForm({
         />
         <br />
 
-        <button type="submit" className="submit-btn">
+        <button
+          type="submit"
+          className="submit-btn"
+          aria-label={SelectedPost ? "Submit edited post" : "Submit new post"}
+        >
           {SelectedPost ? "Edit Post" : "Add Post"}
         </button>
       </div>

@@ -43,7 +43,6 @@ export default function UserPosts() {
             className="create-post-btn"
             onClick={() => navigate(`/new-post`)}
           >
-            {" "}
             Create Your First Post
           </button>
         </>

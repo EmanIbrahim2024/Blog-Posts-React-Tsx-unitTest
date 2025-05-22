@@ -45,13 +45,13 @@ const Signup = () => {
 
   return (
     <div>
-      <h2 className="pagetitle">Sign Up</h2>
+      <h1 className="pagetitle">Sign Up</h1>
       <form onSubmit={handleSignup} className="Log-sign-form">
         <label htmlFor="name">Full Name </label>
         <input
           id="name"
           type="text"
-          placeholder="Name"
+          placeholder="Eman Ibrahim Ali"
           value={fullName}
           onChange={(e) => setFullName(e.target.value)}
           required
@@ -61,7 +61,7 @@ const Signup = () => {
         <input
           id="phone"
           type="text"
-          placeholder="Phone Number"
+          placeholder="01201111117"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           required
@@ -71,7 +71,7 @@ const Signup = () => {
         <input
           id="email"
           type="email"
-          placeholder="Email"
+          placeholder="emanibrahim@gmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
@@ -81,7 +81,7 @@ const Signup = () => {
         <input
           id="password"
           type="password"
-          placeholder="Password"
+          placeholder="Td*23N"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required

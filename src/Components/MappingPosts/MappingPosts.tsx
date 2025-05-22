@@ -4,13 +4,16 @@ import { Post, MapingPostsProp } from "Components/Types";
 import { useState } from "react";
 import { Pagination } from "../index";
 
-export default function MapingPosts({userPosts,handleEdit,handleDelete}: MapingPostsProp) {
-
+export default function MapingPosts({
+  userPosts,
+  handleEdit,
+  handleDelete,
+}: MapingPostsProp) {
   const userInLocalSt = localStorage.getItem("user");
   const user = userInLocalSt ? JSON.parse(userInLocalSt) : null;
 
-  function isValidDate(d:Date){
-    return d instanceof Date&& !isNaN(d.getTime());
+  function isValidDate(d: Date) {
+    return d instanceof Date && !isNaN(d.getTime());
   }
 
   //////////// sorting posts///////////////
@@ -41,7 +44,7 @@ export default function MapingPosts({userPosts,handleEdit,handleDelete}: MapingP
 
   return (
     <>
-      <ul>
+      <ul className="post-list">
         {currentPosts.map((post: Post) => (
           <li key={post.id} className="user-posts-cont">
             <div className="post-Container">
@@ -53,9 +56,24 @@ export default function MapingPosts({userPosts,handleEdit,handleDelete}: MapingP
             <div className="bottompost">
               <div className="button-Container">
                 {post.id && (
-                  <button data-testid={`deletebtn-${post.id}`} onClick={() => handleDelete(post.id!)}>Delete</button>
+                  <button
+                    data-testid={`deletebtn-${post.id}`}
+                    onClick={() => handleDelete(post.id!)}
+                    aria-label={`Delete post titled ${post.title}`}
+                    aria-labelledby={`title-${post.id}`}
+                    title="Delete Post"
+                  >
+                    Delete
+                  </button>
                 )}
-                <button onClick={() => handleEdit(post)}>Edit</button>
+                <button
+                  onClick={() => handleEdit(post)}
+                  aria-label={`Edit post titled ${post.title}`}
+                  aria-labelledby={`title-${post.id}`}
+                  title="Edit Post"
+                >
+                  Edit
+                </button>
               </div>
               <div className="dateAuther-container">
                 <p className="auther-name">
@@ -63,9 +81,11 @@ export default function MapingPosts({userPosts,handleEdit,handleDelete}: MapingP
                 </p>
                 <p className="date">
                   {" "}
-                  {isValidDate(new Date(post.timestamp))?formatDistanceToNow(new Date(post.timestamp), {
-                    addSuffix: true,
-                  }):"Date is not available"}
+                  {isValidDate(new Date(post.timestamp))
+                    ? formatDistanceToNow(new Date(post.timestamp), {
+                        addSuffix: true,
+                      })
+                    : "Date is not available"}
                 </p>
               </div>
             </div>
@@ -73,11 +93,13 @@ export default function MapingPosts({userPosts,handleEdit,handleDelete}: MapingP
         ))}
       </ul>
 
-      {userPosts.length !== 0 && <Pagination
-        totalPages={totalPages}
-        handlePageChange={handlePageChange}
-        currentPage={currentPage}
-      />}
+      {userPosts.length !== 0 && (
+        <Pagination
+          totalPages={totalPages}
+          handlePageChange={handlePageChange}
+          currentPage={currentPage}
+        />
+      )}
     </>
   );
 }

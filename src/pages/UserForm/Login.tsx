@@ -14,7 +14,7 @@ export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleLogin = async (e:FormEvent) => {
+  const handleLogin = async (e: FormEvent) => {
     e.preventDefault();
 
     try {
@@ -28,26 +28,28 @@ export default function Login() {
       const userData = snapshot.val();
       dispatch(loginSuccess(userData));
       navigate("/dashboard");
-    } catch (error:any) {
+    } catch (error: any) {
       alert("Error: " + error.code);
     }
   };
 
   return (
     <div>
-      <h2 className="pagetitle">Login</h2>
+      <h1 className="pagetitle">Login</h1>
       <form onSubmit={handleLogin} className="Log-sign-form">
-        <label> Email </label>
+        <label htmlFor="email"> Email </label>
         <input
+          id="email"
           type="email"
-          placeholder="Email"
+          placeholder="eman@gmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
+          id="password"
           type="password"
-          placeholder="Password"
+          placeholder="12T*jP"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />

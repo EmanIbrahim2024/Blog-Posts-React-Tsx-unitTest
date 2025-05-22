@@ -26,7 +26,7 @@ export default function Posts() {
 
   return (
     <>
-      <h2 className="pagetitle">All Posts</h2>
+      <h1 className="pagetitle">All Posts</h1>
       {loading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
 

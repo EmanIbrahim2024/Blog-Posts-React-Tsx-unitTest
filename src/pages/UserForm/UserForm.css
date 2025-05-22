@@ -13,12 +13,11 @@
 .Log-sign-form textarea {
   width: 95%;
   padding: 10px;
-  margin-inline-end: 2rem;
-  
+  margin-inline-end: 2rem; 
   margin-bottom: 12px;
   border: 1px solid #ddd;
   border-radius: 6px;
-  font-size: 14px;
+  font-size: 1rem;
 }
 
 .Log-sign-form button {
@@ -28,7 +27,7 @@
   padding: 10px;
   width: 100%;
   border-radius: 6px;
-  font-size: 16px;
+  font-size: 1rem;
   cursor: pointer;
 }
 
